@@ -1,0 +1,5 @@
+.DS_Store
+lighttpd.conf.txt
+install/
+private/
+
