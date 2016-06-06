@@ -12,8 +12,8 @@ DEFINE('PING_DB', '../data/ping.db');
 DEFINE('MESSAGE_DB', '../data/message.db');
 
 $versions = array(
-  'android' => '1.0.4',
-  'ios' => '1.0.6',
+  'android' => '1.1.0',
+  'ios' => '1.1.0',
 );
 
 function flatten($array, $prefix = '') {
