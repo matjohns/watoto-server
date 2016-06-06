@@ -85,6 +85,7 @@ function validate(&$obj) {
       break;
     case 'android':
       switch ($obj['device_manufacturer']) {
+        case 'unknown':
         case 'Genymotion':
           $obj['device_emulator'] = true;
           break;
