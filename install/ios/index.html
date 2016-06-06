@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+  <title>Watoto</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+  <link href="../../css/custom.css" rel="stylesheet">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <span class="glyphicon glyphicon-plus"></span>
+          Watoto
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container text-center" style="margin-top: 25px;">
+    <p class="lead text-left">
+      An interactive medical calculator implementing Kenyan basic paediatric protocols.
+    </p>
+    <p class="lead text-left">
+      Designed for use by trained medical staff; Watoto supports Kenyan clinicians to assess nutritional status, approximate certain anatomical attributes and calculate essential drug dosing for paediatric patients; quickly and easily, whilst helping to reduce the likelihood of human error.
+    </p>
+  </div>
+
+  <div class="container text-center" id="install">
+    <h1 class="text-center">Install</h1>
+    <p class="lead text-center">
+      <span class="text-nowrap">As Apple have unfortunately rejected the app so far,</span>
+      <span class="text-nowrap">the only way to currently install is via ad-hoc builds.</span>
+      <span class="text-nowrap">However Mat will need to register your iPhone's <a href="#udid">UDID</a></span>
+      <span class="text-nowrap">before the app will install.</span>
+    </p>
+    <div class="lead row center-block">
+      <a href="itms-services://?action=download-manifest&url=https://watoto.cyberfish.org/install/ios/manifest.plist">
+        <button class="btn btn-lg btn-primary" type="button">
+          <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+          Install for iOS
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <div class="container text-center" id="udid">
+    <h1 class="text-center">UDID</h1>
+    <p class="lead text-center">
+      <span class="text-nowrap">This is the developer identifier for your phone,</span>
+      <span class="text-nowrap">Mat can register up to 100 devices to his account</span>
+      <span class="text-nowrap">and produces builds for them (currently 94 left).</span>
+    </p>
+    <p class="lead text-center">
+      <span class="text-nowrap">You can get your <a href="http://www.iclarified.com/52179/how-to-find-your-iphones-udid">UDID from iTunes</a>,</span>
+      <span class="text-nowrap">or via the convenient <a href="http://get.udid.io">get.udid.io</a> website.</span>
+    </p>
+  </div>
+
+  <footer>
+    <div class="small-print">
+      <div class="container">
+        <p><a href="/disclaimer">Disclaimer</a> | <a href="/privacy">Privacy Policy</a>
+        <p>Copyright &copy; 2016 Mat Johns et al</p>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/ie10-viewport-bug-workaround.js"></script>
+
+</body>
+</html>
