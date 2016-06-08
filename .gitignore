@@ -1,5 +1,6 @@
 .DS_Store
 lighttpd.conf.txt
-install/
-private/
-
+data/*.db
+install/ios/Watoto.ipa
+install/ios/manifest.plist
+install/ios/img/
