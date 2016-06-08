@@ -11,7 +11,6 @@ import Table from 'grommet/components/Table'
 import Chart from 'grommet/components/Chart'
 import Meter from 'grommet/components/Meter'
 
-const REST_API = 'https://restcountries.eu/rest/v1/alpha?codes='
 const FLAGS = 'http://www.geonames.org/flags/x/'
 const ISO_LOOKUP = [
   {name: 'Afghanistan', code: 'AF'},
@@ -260,25 +259,9 @@ const ISO_LOOKUP = [
 ]
 
 const Countries = React.createClass({
-  // getInitialState() {
-  //   return {
-  //     data: undefined,
-  //   }
-  // },
   render() {
     if (!this.props.data) return null
-    // if (!this.state.data) {
-    //   var countries = _.keys(this.props.data.countries).sort()
-    //   fetch(REST_API + _.join(countries, ';'))
-    //     .then(resp => resp.json())
-    //     .then(data => {
-    //       this.setState({
-    //         data: data,
-    //       })
-    //       this.forceUpdate()
-    //     })
-    //   return null
-    // }
+
     return (
       <Section>
         <Heading tag='h2' align='center'>
@@ -289,7 +272,6 @@ const Countries = React.createClass({
             <Table>
               <thead>
                 <tr>
-                  <th>&nbsp;</th>
                   <th>Country</th>
                   <th>Users</th>
                 </tr>
@@ -302,8 +284,9 @@ const Countries = React.createClass({
                       <tr key={key}>
                         <td>
                           <img src={FLAGS + key.toLowerCase() + '.gif'} width='28' height='18' />
+                          &nbsp;
+                          {country.name}
                         </td>
-                        <td>{country.name}</td>
                         <td>{value}</td>
                       </tr>
                     ))
