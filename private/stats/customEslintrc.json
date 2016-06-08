@@ -1,0 +1,19 @@
+{
+  "rules": {
+    "no-unused-vars": [
+        "warn",
+        {
+            "vars": "all",
+            "args": "after-used"
+        }
+    ],
+    "comma-dangle": [
+      "warn",
+      "only-multiline"
+    ],
+    "semi": [
+      "error",
+      "never"
+    ]
+  }
+}
