@@ -1,5 +1,7 @@
 import '../scss/index.scss'
 
+import Moment from 'moment'
+
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import App from 'grommet/components/App'
@@ -11,6 +13,7 @@ import Title from 'grommet/components/Title'
 import Users from './components/Users'
 import Drugs from './components/Drugs'
 import Countries from './components/Countries'
+import Devices from './components/Devices'
 
 const Refresh = require('grommet/components/icons/base/Refresh')
 
@@ -32,9 +35,7 @@ const Main = React.createClass({
     })
       .then(resp => resp.json())
       .then(data => {
-        this.setState({
-          data: data,
-        })
+        this.state.data = data
         this.forceUpdate()
       })
   },
@@ -51,6 +52,7 @@ const Main = React.createClass({
         <Users data={this.state.data} />
         <Countries data={this.state.data} />
         <Drugs data={this.state.data} />
+        <Devices data={this.state.data} />
       </App>
     )
   },
