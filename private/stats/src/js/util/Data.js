@@ -32,6 +32,9 @@ module.exports = {
       return res
     }, []))
 
-    return _.fromPairs(top)
+    var ret = _.fromPairs(top)
+    delete ret[undefined]
+
+    return ret
   },
 }
