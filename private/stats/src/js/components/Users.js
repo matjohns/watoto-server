@@ -45,7 +45,7 @@ const Users = React.createClass({
               {
                 label: 'New',
                 values: _.reduce(this.props.data.users.perDay, (res, value, key) => {
-                  var day = Moment(key).utc()
+                  var day = Moment(key)
                   res.push([day.toDate(), value.new])
                   return res
                 }, []),
@@ -53,7 +53,7 @@ const Users = React.createClass({
               {
                 label: 'Existing',
                 values: _.reduce(this.props.data.users.perDay, (res, value, key) => {
-                  var day = Moment(key).utc()
+                  var day = Moment(key)
                   res.push([day.toDate(), value.existing])
                   return res
                 }, []),
@@ -61,7 +61,7 @@ const Users = React.createClass({
             ]} type='area' smooth={true} xAxis={{
               placement: 'bottom',
               data: _.reduce(this.props.data.users.perDay, (res, value, key) => {
-                var day = Moment(key).utc()
+                var day = Moment(key)
                 res.push({
                   label: day.format('D MMM'),
                   value: day.toDate(),
@@ -77,7 +77,7 @@ const Users = React.createClass({
               {
                 label: 'New',
                 values: _.reduce(this.props.data.users.perWeek, (res, value, key) => {
-                  var week = Moment(key, 'YYYY-W').utc()
+                  var week = Moment(key, 'YYYY-W')
                   res.push([week.toDate(), value.new])
                   return res
                 }, []),
@@ -85,7 +85,7 @@ const Users = React.createClass({
               {
                 label: 'Existing',
                 values: _.reduce(this.props.data.users.perWeek, (res, value, key) => {
-                  var week = Moment(key, 'YYYY-W').utc()
+                  var week = Moment(key, 'YYYY-W')
                   res.push([week.toDate(), value.existing])
                   return res
                 }, []),
@@ -93,9 +93,9 @@ const Users = React.createClass({
             ]} type='area' smooth={true} xAxis={{
               placement: 'bottom',
               data: _.reduce(this.props.data.users.perWeek, (res, value, key) => {
-                var week = Moment(key, 'YYYY-W').utc()
+                var week = Moment(key, 'YYYY-W')
                 res.push({
-                  label: week.format('[wk]W (D MMM)'),
+                  label: week.format('[wk]W'),
                   value: week.toDate(),
                 })
                 return res

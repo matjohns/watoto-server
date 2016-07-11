@@ -42,19 +42,20 @@ const Drugs = React.createClass({
                 _.merge(values, value)
 
                 values = _.reduce(values, (res2, value2, key2) => {
-                  var week = Moment(key2, 'YYYY-W').utc()
+                  var week = Moment(key2, 'YYYY-W')
                   res2.push([week.unix(), value2])
                   return res2
                 }, [])
 
                 res.push({
-                  label: key,
+                  label: _.startCase(key),
                   values: values,
+                  colorIndex: (key == 'others' ? 'graph-13' : null),
                 })
 
                 res = _.sortBy(res, (x) => {
                   var sum
-                  if (x.label == 'others') sum = 1
+                  if (x.label == 'Others') sum = 1
                   else sum = _.sumBy(x.values, (y) => {
                     return -y[1] || 0
                   })
@@ -65,9 +66,9 @@ const Drugs = React.createClass({
             } type='bar' smooth={true} xAxis={{
               placement: 'bottom',
               data: _.reduce(this.props.data.drugs.perWeek, (res, value, key) => {
-                var week = Moment(key, 'YYYY-W').utc()
+                var week = Moment(key, 'YYYY-W')
                 res.push({
-                  label: week.format('[wk]W (D MMM)'),
+                  label: week.format('[wk]W'),
                   value: week.unix(),
                 })
                 return res
@@ -105,8 +106,8 @@ const Drugs = React.createClass({
                     res.push((
                       <tr key={key}>
                         <td>{_.startCase(key)}</td>
-                        <td>{value.visits}</td>
-                        <td>{value.users}</td>
+                        <td style={{textAlign:'right'}}>{value.visits}</td>
+                        <td style={{textAlign:'right'}}>{value.users}</td>
                       </tr>
                     ))
                     return res
