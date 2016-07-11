@@ -279,17 +279,46 @@ const Countries = React.createClass({
               <tbody>
                 {
                   _.reduce(this.props.data.countries, (res, value, key) => {
-                    var country = _.find(ISO_LOOKUP, {code: key})
-                    res.push((
-                      <tr key={key}>
-                        <td>
-                          <img src={FLAGS + key.toLowerCase() + '.gif'} width='28' height='18' />
-                          &nbsp;
-                          {country.name}
-                        </td>
-                        <td>{value}</td>
-                      </tr>
-                    ))
+                    var keys = _.split(key, ',')
+                    if (keys.length == 1) {
+                      var country = _.find(ISO_LOOKUP, {code: key})
+                      res.push((
+                        <tr key={key}>
+                          <td>
+                            {country ? <img src={FLAGS + key.toLowerCase() + '.gif'} width='28' height='18' /> : null}
+                            &nbsp;
+                            {country ? country.name : 'Unknown'}
+                          </td>
+                          <td style={{textAlign:'right'}}>{value}</td>
+                        </tr>
+                      ))
+                    } else {
+                      res.push((
+                        <tr key={key}>
+                          <td>{
+                            _.reduce(keys, (res, key2) => {
+                              var country = _.find(ISO_LOOKUP, {code: key2})
+                              if (country) {
+                                res[0].push((
+                                  <span key={key + '-' + key2 + '-flags'}>
+                                    <img src={FLAGS + key2.toLowerCase() + '.gif'} width='28' height='18' />
+                                    &nbsp;
+                                  </span>
+                                ))
+                                res[2].push((
+                                  <span key={key + '-' + key2 + '-text'}>
+                                    {country.name}
+                                    <br />
+                                  </span>
+                                ))
+                              }
+                              return res
+                            }, [[],[(<br/>)],[]])
+                          }</td>
+                          <td style={{textAlign:'right'}}>{value}</td>
+                        </tr>
+                      ))
+                    }
                     return res
                   }, [])
                 }
