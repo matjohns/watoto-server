@@ -93,6 +93,17 @@ function validate(&$obj) {
       break;
   }
 
+  // Mark non-official versions as device_emulator = 2
+  // to exclude them from stats
+  switch ($obj['app_source']) {
+    case 'fd3d987':
+    case 'db979a6':
+    case 'f5a5db2':
+      break;
+    default:
+      $obj['device_emulator'] = 2;
+  }
+
   foreach ($obj as $key => $value) {
     $pos = strpos($key, 'time');
     if ($pos !== false && (substr($key, $pos -1, 1) == '_' || substr($key, $pos +4, 1) == '_')) {
